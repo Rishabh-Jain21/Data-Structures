@@ -1,6 +1,3 @@
-from typing import BinaryIO
-
-
 def binary_search(arr, ele):
     first = 0
     last = len(arr)-1
