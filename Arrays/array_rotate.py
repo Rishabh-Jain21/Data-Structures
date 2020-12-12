@@ -13,11 +13,25 @@ def rotate_1(lst, d):
 
 
 def rotate_2(lst, d):
+    l = len(lst)
     # By list partioning
-    return lst[d:]+lst[:d]
+    return lst[d % l:]+lst[:d % l]
 
 
 array = [1, 2, 3, 4, 5, 6, 7]
 d = -2
 print(rotate_1(array, d))
 print(rotate_2(array, d))
+
+
+# Find element at index i after d rotation
+
+def element_index(lst, d, i):
+    l = len(lst)
+    return lst[((d % l)+i) % l]
+
+
+array = [1, 2, 3, 4, 5, 6, 7]
+d = -2
+i = 3
+print(element_index(array, d, i))
