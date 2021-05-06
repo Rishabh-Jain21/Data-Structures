@@ -5,9 +5,7 @@ def insertion(arr):
         while position > 0 and arr[position-1] > current:
             arr[position] = arr[position-1]
             position = position-1
-
         arr[position] = current
-
     return arr
 
 
