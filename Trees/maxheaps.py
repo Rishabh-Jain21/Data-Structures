@@ -1,9 +1,9 @@
 class MaxHeap:
     def __init__(self, items=[]):
         self.heap = [0]
-        if items:
-            for item in items:
-                self.push(item)
+        for item in items:
+            self.heap.append(item)
+            self.__floatUp(len(self.heap) - 1)
 
     def push(self, data):
         self.heap.append(data)
@@ -22,7 +22,7 @@ class MaxHeap:
             self.__bubbleDown(1)
         elif len(self.heap) == 2:
             max = self.heap.pop()
-        else:
+        else: 
             max = False
         return max
 
@@ -34,6 +34,7 @@ class MaxHeap:
         if index <= 1:
             return
         elif self.heap[index] > self.heap[parent]:
+            
             self.__swap(index, parent)
             self.__floatUp(parent)
 
@@ -52,18 +53,31 @@ class MaxHeap:
     def __str__(self):
         return str(self.heap)
 
+    def search(self,num,index):
+        left=2*index
+        right=2*index+1
+        if((self.heap[index])<num):
+            return False
+        if((self.heap[index]==num)):
+            return True
+        if len(self.heap) > left:
+            return self.search(num,left)
+        if len(self.heap) > right:
+            return self.search(num,right)
+        return
+
     def total(self):
-        self.li = []
-        while(len(self.heap) != 1):
+        self.li=[]
+        while(len(self.heap)!=1):
             self.li.append(self.pop())
 
         return self.li
-
-
-m = MaxHeap([95, 3, 21, 1, 45, 63, 78, 44, 96, 36, 12])
+        
+m = MaxHeap([95,3,21,1,45,63,78,44,96,36,12])
 m.push(10)
 print(m)
-#print(m.search(44, 1))
-# while(len(m.heap)!=1):
+print(m.search(44,1))
+#while(len(m.heap)!=1):
 #    print(m.pop(),end=" ")
 print(m.total())
+    
