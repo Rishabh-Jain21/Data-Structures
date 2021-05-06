@@ -5,11 +5,9 @@ class Node(object):
 
 
 class LinkedList(object):
-
     def __init__(self):
         self.head = None
         self.count = 0
-
     def insertAtHead(self, value):
         if self.head == None:
             self.head = Node(value)
