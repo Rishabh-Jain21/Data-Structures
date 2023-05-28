@@ -62,14 +62,14 @@ class BinaryTrees():
 
     def preorder(self, troot):
         if troot:
-            self.preorder(troot.left)
             print(troot.key)
+            self.preorder(troot.left)
             self.preorder(troot.right)
 
     def inorder(self, troot):
         if troot:
-            print(troot.key)
             self.inorder(troot.left)
+            print(troot.key)
             self.inorder(troot.right)
 
     def postorder(self, troot):
