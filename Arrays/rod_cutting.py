@@ -1,6 +1,5 @@
 def rodcutter(n, cost):
     rod = [0 for _ in range(n+1)]
-
     for i in range(n+1):
         max_val = 0
         for j in range(1, i):

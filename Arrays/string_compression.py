@@ -1,23 +1,13 @@
 '''
 AABBCCC -> A2B2C3
 AAABCCCCDDDD -> A3B1C4D4
+AABAABC -> A2B1A2B1C1
+
 '''
 
 
+
 def compress(s):
-    count = {}
-
-    for char in s:
-        count[char] = count.get(char, 0)+1
-
-    result = ''
-    for key, value in count.items():
-        result += f'{key}{value}'
-
-    return result
-
-
-def compress2(s):
     r = ''
     l = len(s)
 
@@ -42,5 +32,20 @@ def compress2(s):
 
     return r
 
+def compress_2(s):
+    result=""
+    i=0
+    j=0
+    n=len(s)
+    while j<n:
+        if s[i]==s[j]:
+            j=j+1
+        else:
+            result=result+s[i]+str(j-i)
+            i=j
+    result=result+s[i]+str(j-i) # This is a case for last set of repeating characters
+    return result
 
-print(compress2('AAB'))
+print(compress('AABAABC'))
+print(compress_2('AABAABC'))
+

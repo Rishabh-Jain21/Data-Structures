@@ -15,8 +15,25 @@ def duplicate_count(arr):
             while(j < len(arr) and arr[j] == arr[i]):
                 j += 1
             print(arr[i], j-i)
-            i = j-1
+
+def duplicate_count_2(arr):
+    """
+    duplicate count using two pointers
+    """
+    arr.sort()
+    i=0
+    j=0
+    while j<len(arr):
+        if arr[j]==arr[i]:
+            j=j+1
+        else:
+            if j-i>0:
+                print(arr[i], j-i)
+            i=j
 
 
 duplicate([1, 1, 2, 5, 4, 6, 6, 3, 2, 5, 4])
 duplicate_count([1, 1, 2, 5, 4, 6, 6, 3, 2, 5, 4])
+print()
+duplicate_count_2([1, 1, 2, 5, 4, 6, 6, 3, 2, 5, 4])
+

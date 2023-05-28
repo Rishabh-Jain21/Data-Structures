@@ -15,7 +15,7 @@ def subarray(arr):
         if (i != 1 and prime(i) == True):
             output.append(i)
         else:
-            print(output)
+            # print(output)
             l = len(output)
             count = count+(l*(l+1))//2
             output = []
